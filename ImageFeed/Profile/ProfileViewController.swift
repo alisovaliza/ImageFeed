@@ -78,30 +78,32 @@ final class ProfileViewController: UIViewController {
     }
     
     private func setupButton() {
-           let button = UIButton.systemButton(
+        let button = UIButton.systemButton(
             with: UIImage(systemName: "ipad.and.arrow.forward")!,
-               target: self,
-               action: #selector(didTapButton)
-           )
-           button.tintColor = UIColor(named: "YP Red")
-           button.translatesAutoresizingMaskIntoConstraints = false
-           view.addSubview(button)
-
-           NSLayoutConstraint.activate([
-               button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-               button.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor)
-           ])
-       }
-
-    @objc private func didTapButton() {
-           
-            view.subviews.forEach { subview in
-                if subview is UILabel {
-                    subview.removeFromSuperview()
-                }
-            }
+            target: self,
+            action: #selector(didTapButton)
+        )
+        button.tintColor = UIColor(named: "YP Red")
+        button.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(button)
+        
+        NSLayoutConstraint.activate([
+            button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            button.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor),
+            button.widthAnchor.constraint(equalToConstant: 44),
+            button.heightAnchor.constraint(equalToConstant: 44)
+        ])
+    }
     
-       }
-   }
-  
+    @objc private func didTapButton() {
+        
+        view.subviews.forEach { subview in
+            if subview is UILabel {
+                subview.removeFromSuperview()
+            }
+        }
+        
+    }
+}
+
 
